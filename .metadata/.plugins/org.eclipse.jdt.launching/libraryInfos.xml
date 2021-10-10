@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="/usr/lib/jvm/java-16-openjdk" version="16.0.2"/>
+<libraryInfo home="/home/benji" version="1.8.0_292">
+<bootpath>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/hdd-storage/Coding/Eclipse TFO/Info/Progs/jdk1.8.0_161" version="1.8.0_161">
+<bootpath>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\resources.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\rt.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\sunrsasign.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\jsse.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\jce.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\charsets.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\jfr.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\ext;C"/>
+<entry path="\windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jdk1.8.0_161\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/usr/lib/jvm/java-8-openjdk" version="1.8.0_292">
+<bootpath>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/resources.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jsse.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jce.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/charsets.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/jfr.jar"/>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/lib/jvm/java-8-openjdk/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/hdd-storage/Coding/Eclipse TFO/Info/Progs/jre1.8.0_161" version="1.8.0_161">
+<bootpath>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\resources.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\rt.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\sunrsasign.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\jsse.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\jce.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\charsets.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\jfr.jar;Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\ext;C"/>
+<entry path="\windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="Z"/>
+<entry path="\hdd-storage\Coding\Eclipse TFO\Info\Progs\jre1.8.0_161\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
