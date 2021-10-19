@@ -5,4 +5,8 @@
 <fullyQualifiedTypeName name="net.tfobz.relationship.Person.Gender"/>
 <fullyQualifiedTypeName name="net.tfobz.relationship.PersonTest"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.StringReader"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

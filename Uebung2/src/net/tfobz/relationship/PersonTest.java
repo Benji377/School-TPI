@@ -3,6 +3,7 @@ package net.tfobz.relationship;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.jupiter.api.*;
 
@@ -131,6 +132,94 @@ public class PersonTest {
 	
 	@Test
 	public void daughtersSons() {
+		p = new Person("Sepp", Gender.MALE);
+		Person tiggy = new Person("Tiggy", Gender.FEMALE);
+		Person father = new Person("Bobby", Gender.MALE);
+		p.setFather(father);
+		assertTrue(father.getSons().contains(p));
+		assertNotNull(father.getDaughters());
+		assertFalse(father.getDaughters().contains(p));
 		
+		tiggy.setFather(father);
+		assertTrue(father.getDaughters().contains(tiggy));
+	}
+	
+	@Test
+	public void sistersBrothers() {
+		p = new Person("Sepp", Gender.MALE);
+		Person father = new Person("Bobby", Gender.MALE);
+		Person mother = new Person("Mommy", Gender.FEMALE);
+		Person tiggy = new Person("Tiggy", Gender.FEMALE);
+		Person mick = new Person("Michael", Gender.MALE);
+		
+		p.setFather(father);
+		p.setMother(mother);
+		tiggy.setFather(father);
+		tiggy.setMother(mother);
+		mick.setFather(father);
+		
+		assertTrue(p.getSisters().contains(tiggy));
+		assertFalse(p.getBrothers().contains(mick));
+		
+		mick.setMother(mother);
+		assertTrue(p.getBrothers().contains(mick));
+	}
+	
+	@Test
+	public void descendants() {
+		Collection<Person> desc = new ArrayList<>();
+		p = new Person("Sepp", Gender.MALE);
+		Person father = new Person("Bobby", Gender.MALE);
+		Person mother = new Person("Mommy", Gender.FEMALE);
+		
+		Person tiggy = new Person("Tiggy", Gender.FEMALE);
+		Person mick = new Person("Michael", Gender.MALE);
+		
+		Person tigga = new Person("Tigga", Gender.FEMALE);
+		Person micko = new Person("Micko", Gender.MALE);
+		desc.add(father);
+		desc.add(mother);
+		desc.add(tiggy);
+		desc.add(mick);
+		desc.add(tigga);
+		desc.add(micko);
+		
+		p.setFather(father);
+		p.setMother(mother);
+		mother.setFather(mick);
+		mother.setMother(tiggy);
+		father.setFather(micko);
+		father.setMother(tigga);
+		
+		assertTrue(p.getDescendants().containsAll(desc));
+	}
+	
+	@Test
+	public void parentOfHimself() {
+		p = new Person("Sepp", Gender.MALE);
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			p.setMother(p);
+			p.setFather(p);
+		});
+	}
+	
+	@Test
+	public void parentIsDescendant() {
+		p = new Person("Sepp", Gender.MALE);
+		Person f = new Person("Federica", Gender.FEMALE);
+		Person father = new Person("Bobby", Gender.MALE);
+		Person mother = new Person("Mommy", Gender.FEMALE);
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			father.setFather(p);
+			p.setFather(father);
+			father.setMother(f);
+			f.setFather(father);
+			
+			mother.setMother(f);
+			f.setMother(mother);
+			mother.setFather(p);
+			p.setMother(mother);
+		});
 	}
 }
