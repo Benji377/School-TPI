@@ -5089,3 +5089,23 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Could not find
 
 !ENTRY org.eclipse.recommenders.models.rcp 1 0 2021-10-27 14:53:29.903
 !MESSAGE org.eclipse.recommenders:index::zip:0.0.0 could not be resolved from the model repositories. Are you offline?
+
+!ENTRY org.eclipse.egit.core 4 0 2021-10-27 15:33:01.515
+!MESSAGE An exception occurred during push on URI https://github.com/Benji377/School-TPI.git: https://github.com/Benji377/School-TPI.git: not authorized
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/Benji377/School-TPI.git: not authorized
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:215)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:84)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:57)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/Benji377/School-TPI.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:531)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:435)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1310)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:169)
+	... 4 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-10-27 15:33:01.530
+!MESSAGE Can't connect to any repository: https://github.com/Benji377/School-TPI.git (https://github.com/Benji377/School-TPI.git: not authorized)
