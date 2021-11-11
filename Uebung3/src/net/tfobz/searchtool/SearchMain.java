@@ -20,7 +20,7 @@ public class SearchMain extends JFrame {
 	FindMin fmin;
 	FindMax fmax;
 	FindAvg favg;
-	final int arrayRange = 1000000;
+	final int arrayRange = 100000;
 	
 	public static void main(String[] args) {
 		SearchMain s = new SearchMain();
@@ -52,6 +52,7 @@ public class SearchMain extends JFrame {
 		
 		minpro = new JProgressBar();
 		minpro.setBounds(205, 45, 450, 30);
+		// Setzt den Text auf den Ladebalken (Die Prozente)
 		minpro.setStringPainted(true);
 		maxpro = new JProgressBar();
 		maxpro.setBounds(205, 85, 450, 30);
@@ -66,6 +67,7 @@ public class SearchMain extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// Setzt den Standardwert der Ladebalken auf 0
 				minpro.setValue(0);
 				maxpro.setValue(0);
 				avgpro.setValue(0);
@@ -74,21 +76,25 @@ public class SearchMain extends JFrame {
 				maxtext.setText("");
 				avgtext.setText("");
 				
+				// Generiert einen zuf‰lligen Array mit groﬂen Zahlen
 				int[] genarray = new int[arrayRange];
 				for (int i = 0; i < genarray.length; i++) {
 					genarray[i] = (int)(Math.random()*(Integer.MAX_VALUE-1));
 				}
+				
 				fmin = new FindMin(genarray, SearchMain.this);
 				fmax = new FindMax(genarray, SearchMain.this);
 				favg = new FindAvg(genarray, SearchMain.this);
-				
+				// Starte alle Threads
 				fmin.start();
 				fmax.start();
 				favg.start();
 				
+				// Thread zur Kontrolle der unteren Threads
 				new Thread() {
 					@Override
 					public void run() {
+						// Deaktiviert den Knopf solange die Threads nicht fertig sind
 						while (fmin.isAlive() || fmax.isAlive() || favg.isAlive())
 							submit.setEnabled(false);
 						submit.setEnabled(true);
@@ -96,7 +102,7 @@ public class SearchMain extends JFrame {
 				}.start();
 			
 			}});
-		
+		// Beinhaltet alle Komponente
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		c.add(min);
