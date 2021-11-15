@@ -28,7 +28,7 @@ public class DigitalClockGUI extends JFrame {
 		// Stellt das Runnable und die Uhr dar
 		this.clock = new DigitalClockLabel();
 		this.clock.setBounds(0, 5, 400, 100);
-		this.clock.setFont(new Font("Arial", Font.BOLD, 50));
+		this.clock.setFont(new Font("Arial", Font.BOLD, 60));
 		this.clock.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		// Erstellt ein Thread aus dem Runnable und startet es
@@ -54,6 +54,7 @@ public class DigitalClockGUI extends JFrame {
 		// Knopf um die Zeit weiterlaufen zu lassen
 		this.resume = new JButton("Continue");
 		this.resume.setBounds(205, 115, 100, 30);
+		this.resume.setEnabled(false);
 		this.resume.addActionListener(new ActionListener() {
 			
 			@Override

@@ -1,5 +1,6 @@
 package net.tfobz.digitalclock;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JLabel;
 
@@ -11,14 +12,25 @@ public class DigitalClockLabel extends JLabel implements Runnable {
 	// Liest die Zeit aus, entfernt die Millisekunden und wandelt es in ein String um
 	private String time = java.time.LocalTime.now().truncatedTo(ChronoUnit.SECONDS).toString();
 	
+	public DigitalClockLabel() {
+		this.setText(time);
+	}
+	
 	@Override
 	public void run() {
 		// Unendliche Schleife die immer kontrolliert obe Zeit gestoppt ist oder nicht
 		while (true) {
-			if (!stopped)
+			if (!stopped) {
 				// Aktualisiert die Zeit
 				time = java.time.LocalTime.now().truncatedTo(ChronoUnit.SECONDS).toString();
-			this.setText(time);
+				this.setText(time);
+			}
+			try {
+				// Lässt das Programm für eine kurze Zeit stehen bleiben um Prozessorauslastung zu verringern
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -29,6 +41,4 @@ public class DigitalClockLabel extends JLabel implements Runnable {
 	public boolean getStopped() {
 		return this.stopped;
 	}
-	
-	
 }
