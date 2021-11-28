@@ -248,12 +248,14 @@ public class Hauptprogramm extends JFrame {
 										else
 											bimag = JPGImageCompress.compressImage(bimage, qualitat);
 										
-										// Erstellt eine neue File Referenz
+										// Erstellt eine neue File Referenz --> Temporär
 										File img_file = new File("temp_file");
 										// Schreibt die Daten in die Datei
 										ImageIO.write(bimag, "jpg", img_file);
 										// Setz das Bild auf
 										image.setImage(bimag);
+										// Löscht die Datei wenn das Programm beendet wird
+										img_file.deleteOnExit();
 									} catch (Exception e) {
 										e.printStackTrace();
 									}
