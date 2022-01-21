@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="java.io.StringReader"/>
 <fullyQualifiedTypeName name="net.tfobz.rohdateien.PrimeFactorTool"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
 <fullyQualifiedTypeName name="net.tfobz.threadanalyse.MyThreadStateAnalyser"/>
@@ -17,7 +16,6 @@
 <fullyQualifiedTypeName name="net.tfobz.imagecompress.ImageComponent"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 <fullyQualifiedTypeName name="javax.swing.JSpinner"/>
-<fullyQualifiedTypeName name="javax.swing.JProgressBar"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.FileChooserUI"/>
 <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
@@ -30,8 +28,6 @@
 <fullyQualifiedTypeName name="javax.xml.stream.XMLInputFactory"/>
 <fullyQualifiedTypeName name="javax.xml.stream.XMLStreamConstants"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="java.awt.Container"/>
 <fullyQualifiedTypeName name="javax.swing.JToggleButton"/>
 <fullyQualifiedTypeName name="javax.swing.JEditorPane"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
@@ -39,7 +35,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="net.tfobz.rssreader.Channel"/>
 <fullyQualifiedTypeName name="net.tfobz.rssreader.AdvancedParser"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ScheduledExecutorService"/>
@@ -53,4 +48,13 @@
 <fullyQualifiedTypeName name="java.awt.SystemTray"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.awt.TrayIcon.MessageType"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="javax.swing.JProgressBar"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="java.awt.Container"/>
+<fullyQualifiedTypeName name="net.tfobz.increase.Increment"/>
+<fullyQualifiedTypeName name="javax.swing.ProgressMonitor"/>
 </qualifiedTypeNameHistroy>
