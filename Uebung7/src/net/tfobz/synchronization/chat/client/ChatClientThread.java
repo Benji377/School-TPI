@@ -13,7 +13,7 @@ public class ChatClientThread extends Thread
 	}
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		try {
 			while (true) {
 				String line = in.readLine();

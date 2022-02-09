@@ -19,7 +19,7 @@ public class ChatServerThread extends Thread
 	}
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		try {
 			ChatServer.outputStreams.add(out);
 			

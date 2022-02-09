@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
 <fullyQualifiedTypeName name="java.time.Duration"/>
 <fullyQualifiedTypeName name="net.tfobz.relationship.Person.Gender"/>
 <fullyQualifiedTypeName name="net.tfobz.relationship.PersonTest"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="java.io.StringReader"/>
 <fullyQualifiedTypeName name="net.tfobz.rohdateien.PrimeFactorTool"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
@@ -19,7 +16,6 @@
 <fullyQualifiedTypeName name="javax.swing.plaf.FileChooserUI"/>
 <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.lang.Thread.State"/>
 <fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
 <fullyQualifiedTypeName name="net.tfobz.rssreader.SimpleParser"/>
@@ -57,4 +53,11 @@
 <fullyQualifiedTypeName name="java.awt.Container"/>
 <fullyQualifiedTypeName name="net.tfobz.increase.Increment"/>
 <fullyQualifiedTypeName name="javax.swing.ProgressMonitor"/>
+<fullyQualifiedTypeName name="net.tfobz.synchronization.serializedcounter.CounterIncreementThread"/>
+<fullyQualifiedTypeName name="net.tfobz.synchronization.serializedcounter.SerializedCounter"/>
+<fullyQualifiedTypeName name="net.tfobz.synchronization.chat.client.ChatClientThread"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="net.tfobz.synchronization.chat.client.ChatClient"/>
+<fullyQualifiedTypeName name="java.io.StringReader"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
 </qualifiedTypeNameHistroy>
