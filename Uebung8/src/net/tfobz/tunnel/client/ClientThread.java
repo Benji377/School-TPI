@@ -98,64 +98,79 @@ public class ClientThread extends Thread
 	public void run() {
 		if (count > 0) {
 			// Neue Besichtigung
-			guidesMonitor.request();
-			try {
-				Socket client = new Socket(HOST, PORT);
-				OutputStream out = client.getOutputStream();
-				out.write(count);
-				
-				InputStream in = client.getInputStream();
-				int response = (byte) in.read();
-				
-				System.out.println("T: " + this.getName() + ": " + response);
-				if (response == -1) {
-					clientForm.status_area.setText(clientForm.status_area.getText() +
-							"No visitors booked\n");
-				} else {
-					clientForm.avai_visitors.setText("Available Visitors: " + response);
-					clientForm.mActiveVisits.addElement(count + " visitors");
-					clientForm.status_area.setText(clientForm.status_area.getText() +
-							count + " visitors booked" + "\n" + response + " visitors remaining\n");
+			if (guidesMonitor.getAvailableGuides() > 0) {
+				guidesMonitor.request();
+				try {
+					// Öffnet eine Verbindung zum Server
+					Socket client = new Socket(HOST, PORT);
+					OutputStream out = client.getOutputStream();
+					// Schreibt die Anzahl an Besucher aus
+					out.write(count);
+					
+					InputStream in = client.getInputStream();
+					int response = (byte) in.read();
+					
+					// Bei fehlgeschlagener Aktion wird -1 zurückgegeben
+					if (response == -1) {
+						clientForm.status_area.setText(clientForm.status_area.getText() +
+								"No visitors booked\n");
+					} else {
+						// Verbleibende Besucheranzahl wird aufgefrischt und Statusmeldung ausgegeben
+						clientForm.avai_visitors.setText("Available Visitors: " + response);
+						// String wird dem clientForm übergeben
+						clientForm.mActiveVisits.addElement(count + " visitors");
+						clientForm.status_area.setText(clientForm.status_area.getText() +
+								count + " visitors booked" + "\n" + response + " visitors remaining\n");
+					}
+					
+					client.close();
+				} catch (IOException e) {
+					guidesMonitor.release();
+					clientForm.status_area.setText(clientForm.status_area.getText() + 
+							"Connection error: Guide released\n");
+					e.printStackTrace();
 				}
-				
-				client.close();
-			} catch (IOException e) {
-				guidesMonitor.release();
+			} else {
+				// No Guide available
 				clientForm.status_area.setText(clientForm.status_area.getText() + 
-						"Connection error: Guide released\n");
-				e.printStackTrace();
+						"No Guide available\n");
 			}
 		} else if (count < 0) {
 			// Besichtigung soll beendet werden
-			guidesMonitor.release();
-			
-			try {
-				Socket client = new Socket(HOST, PORT);
-				OutputStream out = client.getOutputStream();
-				// Count ist in diesem Fall der Index der Liste an der sich das Element befindet
-				count *= -1;
-				count -= 1;
-				// Wir extrahieren die String und wandeln diese in Integer um mit Regex
-				String list_item = clientForm.mActiveVisits.get(count);
-				String extract = list_item.replaceAll("[^0-9]", "");
-				int anz = Integer.parseInt(extract);
-				anz *= -1;
-				// Wir übergeben somit die Anzahl an Besucher die released werden sollen
-				out.write(anz);
+			if (guidesMonitor.getAvailableGuides() > 0) {
+				guidesMonitor.release();
+				try {
+					Socket client = new Socket(HOST, PORT);
+					OutputStream out = client.getOutputStream();
+					// Count ist in diesem Fall der Index der Liste an der sich das Element befindet
+					count *= -1;
+					count -= 1;
+					// Wir extrahieren die String und wandeln diese in Integer um mit Regex
+					String list_item = clientForm.mActiveVisits.get(count);
+					String extract = list_item.replaceAll("[^0-9]", "");
+					int anz = Integer.parseInt(extract);
+					anz *= -1;
+					// Wir übergeben somit die Anzahl an Besucher die released werden sollen
+					out.write(anz);
 
-				InputStream in = client.getInputStream();
-				int response = (byte) in.read();
-				
-				System.out.println("T: " + this.getName() + ": " + response);
-				clientForm.avai_visitors.setText("Available Visitors: " + response);
-				// Mit dem Index löschen wir sie aus dem clientForm
-				String text = clientForm.mActiveVisits.remove(count);
-				clientForm.status_area.setText(clientForm.status_area.getText() + text +
-						" returned" + "\n" + response + " visitors remaining\n");
-				
-				client.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+					InputStream in = client.getInputStream();
+					int response = (byte) in.read();
+					
+					System.out.println("T: " + this.getName() + ": " + response);
+					clientForm.avai_visitors.setText("Available Visitors: " + response);
+					// Mit dem Index löschen wir sie aus dem clientForm
+					String text = clientForm.mActiveVisits.remove(count);
+					clientForm.status_area.setText(clientForm.status_area.getText() + text +
+							" returned" + "\n" + response + " visitors remaining\n");
+					
+					client.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				// No Guide available
+				clientForm.status_area.setText(clientForm.status_area.getText() + 
+						"No Guide available\n");
 			}
 		} else if (count == 0) {
 			// Anfrage an Server soll nachfragen wie viele noch im Tunnel platz haben

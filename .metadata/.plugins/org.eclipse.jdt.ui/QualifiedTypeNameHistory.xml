@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.plaf.FileChooserUI"/>
-<fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
-<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-<fullyQualifiedTypeName name="java.lang.Thread.State"/>
 <fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
 <fullyQualifiedTypeName name="net.tfobz.rssreader.SimpleParser"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="javax.xml.stream.XMLInputFactory"/>
 <fullyQualifiedTypeName name="javax.xml.stream.XMLStreamConstants"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
@@ -57,7 +52,12 @@
 <fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="org.omg.CORBA_2_3.portable.OutputStream"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="net.tfobz.tunnel.server.VisitorsMonitor"/>
 <fullyQualifiedTypeName name="net.tfobz.tunnel.client.ClientThread"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="java.util.TimerTask"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
 </qualifiedTypeNameHistroy>

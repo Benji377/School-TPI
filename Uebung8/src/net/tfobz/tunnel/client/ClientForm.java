@@ -3,12 +3,7 @@ package net.tfobz.tunnel.client;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -116,6 +111,7 @@ public class ClientForm extends JFrame {
 		
 		request_visit = new JButton("Request visit");
 		request_visit.setBounds(15, 110, 200, 30);
+		this.getRootPane().setDefaultButton(request_visit);
 		request_visit.addActionListener(new ActionListener() {
 			
 			@Override
@@ -126,11 +122,13 @@ public class ClientForm extends JFrame {
 					ClientThread ct = new ClientThread(0, ClientForm.this, guidesMonitor);
 					ct.start();
 					ct.join();
-					System.out.println("New max: " + max_tunnelers);
+					// Kontrolliert ob die Anzahl gebucht werden soll
 					if (anzahl <= max_tunnelers && anzahl != 0) {
+						// Bucht die Anzahl an Besucher ab
 						ClientThread ct2 = new ClientThread(anzahl, ClientForm.this, guidesMonitor);
 						ct2.start();
 						ct2.join();
+						// Löscht den eingegebenen Wert, wenn die Aktion erfolgreich war
 						visitors_input.setText("");
 					}
 					
@@ -161,17 +159,20 @@ public class ClientForm extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					// Ermittelt den selected Index
 					int ind = visitor_list.getSelectedIndex();
 					if (ind < 0) {
 						ind = 0;
 					} else {
 						ind = ind * (-1);
 					}
+					// Index muss um eins zurück gesetzt werden , denn 0 darf nicht gesendet werden
 					ind -= 1;
-					System.out.println("Index: " + ind);
+					// Erstellt ein Thread um den String aus der Liste zu entfernen
 					ClientThread ct = new ClientThread(ind, ClientForm.this, guidesMonitor);
 					ct.start();
 					ct.join();
+					// Hebt die Auswahl wieder auf
 					visitor_list.clearSelection();
 				} catch (InterruptedException ff) {
 					ff.printStackTrace();
