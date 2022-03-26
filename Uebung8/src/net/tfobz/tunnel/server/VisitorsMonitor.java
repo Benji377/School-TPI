@@ -21,6 +21,13 @@ public class VisitorsMonitor
 	 * @param count
 	 */
 	public synchronized void request(int count) {
+		System.out.println("Requests " + count + " visitors");
+		if (getAvailableVisitors() - count >= 0) {
+			this.availableVisitors -= count;
+			System.out.println("Gets " + count + " visitors");
+		} else {
+			System.out.println("Request failed");
+		}
 	}
 	
 	/**
@@ -29,6 +36,8 @@ public class VisitorsMonitor
 	 * @param count
 	 */
 	public synchronized void release(int count) {
+		System.out.println("Releases " + count + " visitors");
+		this.availableVisitors += count;
 	}
 	
 	/**
@@ -37,6 +46,6 @@ public class VisitorsMonitor
 	 * @return Anzahl der noch in den Tunnel einlassbaren Besucher
 	 */
 	public synchronized int getAvailableVisitors() {
-		return -1;
+		return this.availableVisitors;
 	}
 }

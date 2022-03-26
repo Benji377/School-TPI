@@ -25,6 +25,7 @@ public class GuidesMonitor
 	 * @param clientForm
 	 */
 	public GuidesMonitor(ClientForm clientForm) {
+		this.clientForm = clientForm;
 	}
 	
 	/**
@@ -32,6 +33,19 @@ public class GuidesMonitor
 	 * ClientForm ausgegeben und die Benutzerschnittstelle angepasst
 	 */
 	public synchronized void request() {
+		System.out.println("Guide request, av.: " + getAvailableGuides());
+		clientForm.status_area.setText(clientForm.status_area.getText() + 
+				"Guide requested\n");
+		if (availableGuides > 0) {
+			this.availableGuides -= 1;
+			clientForm.avail_guid.setText("Available guides: " + getAvailableGuides());
+			clientForm.status_area.setText(clientForm.status_area.getText() + 
+					"Guide added, " + getAvailableGuides() + " remaining\n");
+		} else {
+			clientForm.status_area.setText(clientForm.status.getText() +
+					"No more guides available\n");
+		}
+		
 	}
 	
 	/**
@@ -39,6 +53,11 @@ public class GuidesMonitor
 	 * werden ausgegeben und die Benutzerschnittstelle angepasst
 	 */
 	public synchronized void release() {
+		System.out.println("Guide release, av.: " + getAvailableGuides());
+		this.availableGuides += 1;
+		clientForm.avail_guid.setText("Available guides: " + getAvailableGuides());
+		clientForm.status_area.setText(clientForm.status_area.getText() + 
+				"Guide released, " + getAvailableGuides() + " remaining\n");
 	}
 
 	/**
@@ -46,6 +65,6 @@ public class GuidesMonitor
 	 * @return Anzahl der momentan verfügbaren Führer
 	 */
 	public synchronized int getAvailableGuides() {
-		return -1;
+		return this.availableGuides;
 	}
 }

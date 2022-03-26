@@ -1,5 +1,6 @@
 package net.tfobz.tunnel.server;
 
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -30,6 +31,9 @@ public class ServerThread extends Thread
 	 * @param visitorsMonitor
 	 */
 	public ServerThread(Socket client, VisitorsMonitor visitorsMonitor) {
+		this.setName("" + client.getInetAddress());
+		this.client = client;
+		this.visitorsMonitor = visitorsMonitor;
 	}
 	
 	/**
@@ -44,5 +48,33 @@ public class ServerThread extends Thread
 	 * Es werden dem VisitorsMonitor die Anzahl an Benutzer zurück gegeben
 	 */
 	public void run() {
+		try {
+			InputStream in = client.getInputStream();
+			OutputStream out = client.getOutputStream();
+			int anzahl = (byte)in.read();
+			if (anzahl == 0) {
+				// Besucheranzahl zurückgeben
+				int anz = visitorsMonitor.getAvailableVisitors();
+				out.write(anz);
+			} else if (anzahl > 0) {
+				// Neue Besichtigung
+				int anz = visitorsMonitor.getAvailableVisitors();
+				visitorsMonitor.request(anzahl);
+				if (anz > visitorsMonitor.getAvailableVisitors()) {
+					// Besucher wurden gebucht
+					out.write(visitorsMonitor.getAvailableVisitors());
+				} else {
+					// Keine Besucher gebucht
+					out.write(-1);
+				}
+			} else if (anzahl < 0) {
+				// Besichtigung soll beendet werden
+				anzahl *= -1;
+				visitorsMonitor.release(anzahl);
+				out.write(visitorsMonitor.getAvailableVisitors());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

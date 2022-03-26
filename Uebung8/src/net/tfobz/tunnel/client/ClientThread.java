@@ -1,5 +1,10 @@
 package net.tfobz.tunnel.client;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
+import java.io.OutputStream;
+
 /**
  * Jede Anfrage um Start einer Besichtigung oder Beendigung einer solchen muss in 
  * einem eigenen Thread durchgeführt werden, da insbesondere bei nicht 
@@ -25,7 +30,7 @@ public class ClientThread extends Thread
 	/**
 	 * IP-Adresse des Besucherservers
 	 */
-	protected static final String HOST = "localhost";
+	protected static final String HOST = "127.0.0.1";
 	/**
 	 * Port
 	 */
@@ -60,6 +65,9 @@ public class ClientThread extends Thread
 	 */
 	public ClientThread(int anzahl, ClientForm clientForm, 
 		GuidesMonitor guidesMonitor) {
+		this.count = anzahl;
+		this.clientForm = clientForm;
+		this.guidesMonitor = guidesMonitor;
 	}
 	
 	/**
@@ -88,6 +96,88 @@ public class ClientThread extends Thread
 	 * ClientForm ausgegeben
 	 */
 	public void run() {
+		if (count > 0) {
+			// Neue Besichtigung
+			guidesMonitor.request();
+			try {
+				Socket client = new Socket(HOST, PORT);
+				OutputStream out = client.getOutputStream();
+				out.write(count);
+				
+				InputStream in = client.getInputStream();
+				int response = (byte) in.read();
+				
+				System.out.println("T: " + this.getName() + ": " + response);
+				if (response == -1) {
+					clientForm.status_area.setText(clientForm.status_area.getText() +
+							"No visitors booked\n");
+				} else {
+					clientForm.avai_visitors.setText("Available Visitors: " + response);
+					clientForm.mActiveVisits.addElement(count + " visitors");
+					clientForm.status_area.setText(clientForm.status_area.getText() +
+							count + " visitors booked" + "\n" + response + " visitors remaining\n");
+				}
+				
+				client.close();
+			} catch (IOException e) {
+				guidesMonitor.release();
+				clientForm.status_area.setText(clientForm.status_area.getText() + 
+						"Connection error: Guide released\n");
+				e.printStackTrace();
+			}
+		} else if (count < 0) {
+			// Besichtigung soll beendet werden
+			guidesMonitor.release();
+			
+			try {
+				Socket client = new Socket(HOST, PORT);
+				OutputStream out = client.getOutputStream();
+				// Count ist in diesem Fall der Index der Liste an der sich das Element befindet
+				count *= -1;
+				count -= 1;
+				// Wir extrahieren die String und wandeln diese in Integer um mit Regex
+				String list_item = clientForm.mActiveVisits.get(count);
+				String extract = list_item.replaceAll("[^0-9]", "");
+				int anz = Integer.parseInt(extract);
+				anz *= -1;
+				// Wir übergeben somit die Anzahl an Besucher die released werden sollen
+				out.write(anz);
+
+				InputStream in = client.getInputStream();
+				int response = (byte) in.read();
+				
+				System.out.println("T: " + this.getName() + ": " + response);
+				clientForm.avai_visitors.setText("Available Visitors: " + response);
+				// Mit dem Index löschen wir sie aus dem clientForm
+				String text = clientForm.mActiveVisits.remove(count);
+				clientForm.status_area.setText(clientForm.status_area.getText() + text +
+						" returned" + "\n" + response + " visitors remaining\n");
+				
+				client.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else if (count == 0) {
+			// Anfrage an Server soll nachfragen wie viele noch im Tunnel platz haben
+			try {
+				Socket client = new Socket(HOST, PORT);
+				OutputStream out = client.getOutputStream();
+				out.write(count);
+				
+				InputStream in = client.getInputStream();
+				int response = (byte) in.read();
+				
+				System.out.println("T: " + this.getName() + ": " + response);
+				clientForm.max_tunnelers = response;
+				clientForm.avai_visitors.setText("Available Visitors: " + response);
+				clientForm.status_area.setText(clientForm.status_area.getText() + 
+						response + " visitors available\n");
+				
+				client.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -95,5 +185,6 @@ public class ClientThread extends Thread
 	 * @param e
 	 */
 	public void behandleException(Exception e) {
+		e.printStackTrace();
 	}
 }

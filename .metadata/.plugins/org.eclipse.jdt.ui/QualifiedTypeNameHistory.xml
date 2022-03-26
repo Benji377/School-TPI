@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.time.Duration"/>
-<fullyQualifiedTypeName name="net.tfobz.relationship.Person.Gender"/>
-<fullyQualifiedTypeName name="net.tfobz.relationship.PersonTest"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="net.tfobz.rohdateien.PrimeFactorTool"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.awt.Font"/>
-<fullyQualifiedTypeName name="java.time.temporal.ChronoUnit"/>
-<fullyQualifiedTypeName name="net.tfobz.threadanalyse.MyThreadStateAnalyser"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="net.tfobz.imagecompress.ImageComponent"/>
-<fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-<fullyQualifiedTypeName name="javax.swing.JSpinner"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.FileChooserUI"/>
 <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
 <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
@@ -37,7 +24,6 @@
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollBar"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
-<fullyQualifiedTypeName name="javax.swing.JTextArea"/>
 <fullyQualifiedTypeName name="java.awt.TrayIcon"/>
 <fullyQualifiedTypeName name="java.awt.Image"/>
 <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
@@ -46,11 +32,7 @@
 <fullyQualifiedTypeName name="java.awt.TrayIcon.MessageType"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JProgressBar"/>
-<fullyQualifiedTypeName name="javax.swing.JLabel"/>
-<fullyQualifiedTypeName name="javax.swing.JTextField"/>
-<fullyQualifiedTypeName name="java.awt.Container"/>
 <fullyQualifiedTypeName name="net.tfobz.increase.Increment"/>
 <fullyQualifiedTypeName name="javax.swing.ProgressMonitor"/>
 <fullyQualifiedTypeName name="net.tfobz.synchronization.serializedcounter.CounterIncreementThread"/>
@@ -60,4 +42,22 @@
 <fullyQualifiedTypeName name="net.tfobz.synchronization.chat.client.ChatClient"/>
 <fullyQualifiedTypeName name="java.io.StringReader"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="net.tfobz.clock.DigitalClockLabel"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="java.awt.Container"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="javax.swing.JTextArea"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="java.io.DataInputStream"/>
+<fullyQualifiedTypeName name="net.tfobz.tunnel.client.GuidesMonitor"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultListModel"/>
+<fullyQualifiedTypeName name="java.net.ServerSocket"/>
+<fullyQualifiedTypeName name="net.tfobz.tunnel.server.ServerThread"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="org.omg.CORBA_2_3.portable.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="net.tfobz.tunnel.server.VisitorsMonitor"/>
+<fullyQualifiedTypeName name="net.tfobz.tunnel.client.ClientThread"/>
 </qualifiedTypeNameHistroy>
