@@ -10,4 +10,10 @@ public class Arbeiter extends Mitarbeiter {
 	public String toString() {
 		return this.getName() + ", " + this.getPhoneNumber();
 	}
+
+	@Override
+	public int compareTo(Mitarbeiter o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

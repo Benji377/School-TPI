@@ -26,10 +26,20 @@ public class Abteilungsleiter extends Mitarbeiter {
 	public Arbeiter getEmployee(int index) {
 		return employee.get(index);
 	}
+	
+	public int getEmployeeCount() {
+		return employee.size();
+	}
 
 	@Override
 	public String toString() {
 		return this.getName() + ", " + this.getPhoneNumber() + ", " + this.getDepartment() + "\n";
+	}
+
+	@Override
+	public int compareTo(Mitarbeiter o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

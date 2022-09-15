@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="javax.swing.JToggleButton"/>
 <fullyQualifiedTypeName name="javax.swing.JEditorPane"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.awt.EventQueue"/>
 <fullyQualifiedTypeName name="ui.SlotMachineController"/>
 <fullyQualifiedTypeName name="game.SlotMachine"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
 </qualifiedTypeNameHistroy>

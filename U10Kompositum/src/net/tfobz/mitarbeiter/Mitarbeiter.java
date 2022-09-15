@@ -1,6 +1,6 @@
 package net.tfobz.mitarbeiter;
 
-public abstract class Mitarbeiter extends Object {
+public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
 	private String name;
 	private String phone;
 	
