@@ -44,12 +44,12 @@ public class SlotMachineController implements ActionListener, Observer
 		public void run() {
 			// Updates the three images
 			SlotMachineView.getInstance().setImages(
-					game.SlotMachine.getInstance().getActualImages()[0],
-					game.SlotMachine.getInstance().getActualImages()[1],
-					game.SlotMachine.getInstance().getActualImages()[2]
+					SlotMachine.getInstance().getActualImages()[0],
+					SlotMachine.getInstance().getActualImages()[1],
+					SlotMachine.getInstance().getActualImages()[2]
 			);
 			// Updates the points
-			int newGamePoints = game.SlotMachine.getInstance().getPoints();
+			int newGamePoints = SlotMachine.getInstance().getPoints();
 			if (gamePoints == newGamePoints)
 				return;
 			gamePoints = newGamePoints;
@@ -68,7 +68,7 @@ public class SlotMachineController implements ActionListener, Observer
 	 */
 	private SlotMachineController() {
 		// Sets up the five default images
-		game.SlotMachine.getInstance().setImages(
+		SlotMachine.getInstance().setImages(
 				new Image[] {
 						Toolkit.getDefaultToolkit().getImage("images/1.jpg"),
 						Toolkit.getDefaultToolkit().getImage("images/2.jpg"),
@@ -84,6 +84,7 @@ public class SlotMachineController implements ActionListener, Observer
 		SlotMachineView.getInstance().getLabelPoints().setText("n.a.");
 		// Launches the frame
 		SlotMachineView.getInstance().setVisible(true);
+		SlotMachine.getInstance().addObserver(this);
 	}
 
 	/* (non-Javadoc)
@@ -91,9 +92,9 @@ public class SlotMachineController implements ActionListener, Observer
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton)e.getSource()).getName().equals("start"))
-			game.SlotMachine.getInstance().start();
+			SlotMachine.getInstance().start();
 		if (((JButton)e.getSource()).getName().equals("stop"))
-			game.SlotMachine.getInstance().stop();
+			SlotMachine.getInstance().stop();
 	}
 
 	/**

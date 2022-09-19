@@ -8,12 +8,6 @@ public class Arbeiter extends Mitarbeiter {
 
 	@Override
 	public String toString() {
-		return this.getName() + ", " + this.getPhoneNumber();
-	}
-
-	@Override
-	public int compareTo(Mitarbeiter o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getName() + ", " + this.getPhoneNumber() + "\n";
 	}
 }

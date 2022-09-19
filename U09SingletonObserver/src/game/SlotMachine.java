@@ -120,6 +120,9 @@ public class SlotMachine extends Observable
 		// Invokes slot controller thread
 		slotControllerThread = new Thread(new SlotController());
 		slotControllerThread.start();
+		
+		setChanged();
+		notifyObservers("SlotMachine started");
 	}
 	
 	/**
@@ -135,6 +138,9 @@ public class SlotMachine extends Observable
 				slotControllerThread.join();
 			} catch (InterruptedException e) { }
 		}
+		
+		setChanged();
+		notifyObservers("SlotMachine stopped");
 	}
 	
 	/**

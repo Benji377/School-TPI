@@ -18,4 +18,9 @@ public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
 	}
 	
 	public abstract String toString();
+	
+	@Override
+	public int compareTo(Mitarbeiter o) {
+		return this.getName().compareTo(o.getName());
+	}
 }

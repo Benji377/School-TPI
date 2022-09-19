@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Abteilungsleiter extends Mitarbeiter {
 	private String department;
-	private Vector<Arbeiter> employee = new Vector<>();
+	private Vector<Mitarbeiter> employee = new Vector<>();
 
 	public Abteilungsleiter(String name, String phone, String department) {
 		super(name, phone);
@@ -15,15 +15,15 @@ public class Abteilungsleiter extends Mitarbeiter {
 		return department;
 	}
 	
-	public void add(Arbeiter a) {
-		employee.add(a);
+	public void add(Mitarbeiter m) {
+		employee.add(m);
 	}
 
-	public void remove(Arbeiter a) {
-		employee.remove(a);
+	public void remove(Mitarbeiter m) {
+		employee.remove(m);
 	}
 	
-	public Arbeiter getEmployee(int index) {
+	public Mitarbeiter getEmployee(int index) {
 		return employee.get(index);
 	}
 	
@@ -34,12 +34,6 @@ public class Abteilungsleiter extends Mitarbeiter {
 	@Override
 	public String toString() {
 		return this.getName() + ", " + this.getPhoneNumber() + ", " + this.getDepartment() + "\n";
-	}
-
-	@Override
-	public int compareTo(Mitarbeiter o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
