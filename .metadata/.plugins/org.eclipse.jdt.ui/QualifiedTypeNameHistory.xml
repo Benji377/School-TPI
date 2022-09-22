@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="net.tfobz.rssreader.Channel"/>
-<fullyQualifiedTypeName name="net.tfobz.rssreader.AdvancedParser"/>
-<fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.concurrent.ScheduledExecutorService"/>
-<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollBar"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 <fullyQualifiedTypeName name="java.awt.TrayIcon"/>
@@ -46,7 +39,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="net.tfobz.tunnel.server.VisitorsMonitor"/>
 <fullyQualifiedTypeName name="net.tfobz.tunnel.client.ClientThread"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="java.util.Vector"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="net.tfobz.mitarbeiter.Abteilungsleiter"/>
+<fullyQualifiedTypeName name="net.tfobz.state.ampel.rohdateien.AmpelComponent"/>
+<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="javax.swing.Timer"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="net.tfobz.state.ampel.rohdateien.OrangeState"/>
+<fullyQualifiedTypeName name="net.tfobz.state.ampel.rohdateien.RedState"/>
+<fullyQualifiedTypeName name="net.tfobz.state.ampel.rohdateien.Blinkend"/>
+<fullyQualifiedTypeName name="net.tfobz.state.ampel.rohdateien.GreenState"/>
 </qualifiedTypeNameHistroy>

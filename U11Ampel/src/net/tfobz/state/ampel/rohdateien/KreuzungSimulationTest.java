@@ -13,7 +13,7 @@ public class KreuzungSimulationTest extends KreuzungFrame
 	public KreuzungSimulationTest() {
 		setTitle("KreuzungSimulationTest");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		AmpelComponent a = new AmpelComponent();
+		Ampel a = new Ampel();
 		a.setBounds(415, 300, 0, 0);
 		add(a);
 	}
