@@ -5,7 +5,6 @@ public class Blinkend implements Zustand {
 	
 	public Blinkend(Ampel a) {
 		this.a = a;
-		this.a.state = this;
 	}
 
 	@Override

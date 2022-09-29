@@ -6,14 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public class Ampel extends AmpelComponent implements Zustand {
-	/*
-	 * Mögliche Zustände:
-	 * 0 - Orange blinkend
-	 * 1 - Orange
-	 * 2 - Rot
-	 * 3 - Grün 
-	 */
-	public Zustand state;
+	public boolean automatisch = false;
 	
 	public Ampel() {
 		super();
@@ -22,6 +15,7 @@ public class Ampel extends AmpelComponent implements Zustand {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				automatisch = false;
 				ein();
 			}
 		});
@@ -30,6 +24,7 @@ public class Ampel extends AmpelComponent implements Zustand {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				automatisch = false;
 				aus();
 			}
 		});
@@ -38,7 +33,16 @@ public class Ampel extends AmpelComponent implements Zustand {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				automatisch = false;
 				manuellSchalten();
+			}
+		});
+		
+		this.addAutomatischKnopfListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				automatischSchalten();
 			}
 		});
 		
@@ -86,7 +90,6 @@ public class Ampel extends AmpelComponent implements Zustand {
 
 	@Override
 	public void automatischSchalten() {
-		// TODO Auto-generated method stub
 		
 	}
 

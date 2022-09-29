@@ -5,7 +5,6 @@ public class OrangeState implements Zustand {
 	
 	public OrangeState(Ampel a) {
 		this.a = a;
-		this.a.state = this;
 	}
 
 	@Override
